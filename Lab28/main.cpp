@@ -4,8 +4,8 @@
 20.	В данной строке вставить после каждого символа 'a' символ 'b'.
 */
 #include "2.h"
-int Len(char *s) {
-
+int Len(char *s)
+{
 	int l = 0;
 	while (s[l] != '\0')
 		l++;
@@ -23,27 +23,28 @@ void main()
 
 	for (int i = 0; i <= len; i++)
 	{
-		printf_s("%c", s[i]);
-		if (quantity == 0 && s[i] == ' ' && s[i + 1] != ' ')
+		if (s[i] != ' ' && s[i] != '\0') printf_s("%c", s[i]);
+		if (s[i] != ' ' && s[i] != '\0')
 		{
-			quantity++;
+			int tmp = i;
+			do
+			{
+				tmp++;
+				if (s[tmp] != ' ')	printf_s("%c", s[tmp]);
+			}
+			while (s[tmp] != ' ' && s[tmp] != '\0');
+			if (s[tmp] == ' ')
+			{
+				quantity++;
+				printf_s("\n");
+				i = tmp;
+			}
+			if (s[tmp] == '\0')
+			{
+				break;
+			}
 		}
-		else
-		if ( s[i] == ' ' && s[i - 1] != ' ')
-		{
-			quantity++;
-			printf_s("\n");
-		}
-		else if (s[i] == ' ' &&  s[i + 1] != ' ')
-		{
-			quantity++;
-			printf_s("\n");
-		}
-		if (quantity == 0 && s[i] == ' ' && s[i + 1] != ' ')
-		{
-			quantity++;
-		}
-		
+
 	}
 
 	printf_s("Количество слов в тексте: %d\n", quantity);
@@ -63,11 +64,11 @@ void main()
 		{
 			realloc(s, (++length) * sizeof(char));
 			char *tmp = (char*)malloc((length) * sizeof(char));
-			for (int j = i; j < len+1; j++)
+			for (int j = i; j < len + 1; j++)
 			{
-				tmp[j+1] = s[j];
+				tmp[j + 1] = s[j];
 			}
-			for (int j = i+1; j < len+1; j++)
+			for (int j = i + 1; j < len + 1; j++)
 			{
 				if (j == i + 1)
 				{
