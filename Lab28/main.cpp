@@ -21,7 +21,7 @@ void main()
 	gets_s(s, 256);
 	int quantity = 0, len = Len(s);
 
-	for (int i = 1; i <= len; i++)
+	for (int i = 0; i <= len; i++)
 	{
 		printf_s("%c", s[i]);
 		if (quantity == 0 && s[i] == ' ' && s[i + 1] != ' ')
