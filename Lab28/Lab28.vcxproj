@@ -146,13 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="two-dimensional array.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="2.h" />
-    <ClInclude Include="two-dimensional array.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
