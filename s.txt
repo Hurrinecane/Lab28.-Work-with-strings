@@ -1,0 +1,77 @@
+
+2.	Определить количество слов в тексте и вывести каждое слово на новой строке
+12.	Дан текст. Какие прописные русские гласные буквы содержатся в нем
+20.	В данной строке вставить после каждого символа 'a' символ 'b'.
+
+#include 2.h
+int Len(char s) {
+
+	int l = 0;
+	while (s[l] != '0')
+		l++;
+	return l;
+}
+
+
+void main()
+{
+	setlocale(LC_ALL, );
+	int length = 256;
+	char s = (char)malloc((length)  sizeof(char));
+	int o = 0;
+	gets_s(s, 256);
+	int quantity = 0, len = Len(s);
+
+	for (int i = 0; i  len; i++)
+	{
+		printf_s(%c, s[i]);
+		if (s[i] == ' ')
+		{
+			printf_s(n);
+			quantity++;
+		}
+	}
+
+	if (quantity != 0)
+	{
+		quantity++;
+		printf_s(n);
+	}
+
+	printf_s(Количество слов в тексте %dn, quantity);
+
+	for (int i = 0; i  len; i++)
+	{
+		if (s[i] = 'A' && s[i] = 'Z')
+		{
+			printf_s(%c , s[i]);
+		}
+	}
+	printf_s(n);
+
+	for (int i = 0; i  len; i++)
+	{
+		if ((s[i] == 'a'))
+		{
+			realloc(s, (++length)  sizeof(char));
+			char tmp = (char)malloc((length+1)  sizeof(char));
+			for (int j = i; j != len; j++)
+			{
+				tmp[j+1] = s[j];
+			}
+			for (int j = i+1; j  len; j++)
+			{
+				if (j == i + 1)
+				{
+					len++;
+					s[j] = 'b';
+				}
+				else
+					s[j] = tmp[j];
+			}
+		}
+	}
+	puts(s);
+	_getch();
+}
+
