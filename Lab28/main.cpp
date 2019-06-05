@@ -84,7 +84,7 @@ void main()
 	{
 		if ((s[i] == 'a'))
 		{
-			char *tmp = (char*)malloc((length) * sizeof(char));
+			char tmp[256];
 			for (int j = i; j < len + 1; j++)
 			{
 				tmp[j + 1] = s[j];
@@ -102,6 +102,7 @@ void main()
 		}
 	}
 	puts(s);
+	free(s);
 	_getch();
 }
 
