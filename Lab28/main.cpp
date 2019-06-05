@@ -1,6 +1,6 @@
 /*
 2.	Определить количество слов в тексте и вывести каждое слово на новой строке
-12.	Дан текст. Какие прописные русские буквы содержатся в нем?
+12.	Дан текст. Какие прописные английские буквы содержатся в нем?
 20.	В данной строке вставить после каждого символа 'a' символ 'b'.
 */
 #include <conio.h>
@@ -22,6 +22,8 @@ void main()
 	char *s = (char*)malloc((length) * sizeof(char));
 	gets_s(s, 256);
 	int quantity = 0, len = Len(s);
+#pragma region quantity
+
 
 	for (int i = 0; i <= len; i++)
 	{
@@ -32,9 +34,8 @@ void main()
 			do
 			{
 				tmp++;
-				if (s[tmp] != ' ')	printf_s("%c", s[tmp]);
-			}
-			while (s[tmp] != ' ' && s[tmp] != '\0');
+				if (s[tmp] != ' ' && s[i] != '\0')	printf_s("%c", s[tmp]);
+			} while (s[tmp] != ' ' && s[tmp] != '\0');
 			if (s[tmp] == ' ')
 			{
 				quantity++;
@@ -43,22 +44,40 @@ void main()
 			}
 			if (s[tmp] == '\0')
 			{
+				quantity++;
+				printf_s("\n");
 				break;
 			}
 		}
-
 	}
 
 	printf_s("Количество слов в тексте: %d\n", quantity);
 
-	for (int i = 0; i < len; i++)
+#pragma endregion
+
+#pragma region 2
 	{
-		if (s[i] >= 'A' && s[i] <= 'Z')
+		char * tmp = (char*)malloc((len + 1) * sizeof(char));
+		int n = 0;
+		for (int i = 0; i < len; i++)
 		{
-			printf_s("%c ", s[i]);
+			bool check = true;
+
+			if (s[i] >= 'A' && s[i] <= 'Z')
+			{
+				tmp[n] = s[i];
+				for (int j = 0; j < n; j++)
+				{
+					if (tmp[j] == s[i]) check = false;
+				}
+				n++;
+				if (check) printf_s("%c ", s[i]);
+			}
 		}
+		printf_s("\n");
 	}
-	printf_s("\n");
+
+#pragma endregion
 
 	for (int i = 0; i < len; i++)
 	{
