@@ -22,8 +22,8 @@ void main()
 	char *s = (char*)malloc((length) * sizeof(char));
 	gets_s(s, 256);
 	int quantity = 0, len = Len(s);
-#pragma region quantity
 
+#pragma region quantity
 
 	for (int i = 0; i <= len; i++)
 	{
