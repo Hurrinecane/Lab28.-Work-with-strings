@@ -79,11 +79,11 @@ void main()
 
 #pragma endregion
 
+	realloc(s, (2 * len + 1) * sizeof(char));
 	for (int i = 0; i < len; i++)
 	{
 		if ((s[i] == 'a'))
 		{
-			realloc(s, (++length) * sizeof(char));
 			char *tmp = (char*)malloc((length) * sizeof(char));
 			for (int j = i; j < len + 1; j++)
 			{
